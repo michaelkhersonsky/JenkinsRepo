@@ -1,41 +1,15 @@
 pipeline {
-        agent any
-        stages {
-            stage('Build') {
+    agent {
+        docker {
+            image 'httpd'
+          
+        }
+    }
+    stages {
+        stage('Build') {
             steps {
-                echo 'Hi, this is our build step...'
+                sh 'docker run -dt -p 5050:80 --name=my_container httpd'
             }
         }
-
-            stage('Test') {
-            steps {
-                echo 'this is our testing step'
-
-            }
-        }
-
-            stage('Deploy') {
-                parallel {
-                    stage('Start Deploy') {
-                        steps {
-                            echo " We are starting docker deployment"
-                }
-                }
-                    stage('Deploying now') {
-                    agent {
-                        docker {
-                            reuseNode true
-                            image 'httpd'
-                                steps {
-                                        sh 'docker run -dt -p 5050:80 --name=mycontainer httpd'
-                    }
-                    }                   
-                }
-                        steps {
-                            echo "We have completed Deployment"
-                }
-                }
-            }
-        }    
     }
 }
