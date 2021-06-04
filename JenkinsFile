@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker run -dt -p 5050:80 --name=my_container httpd'
+                sh 'httdp --help'
             }
         }
     }
