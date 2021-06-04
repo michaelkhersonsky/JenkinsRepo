@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'httpd'
+            args '-p 5050:80 -v $HOME:/var/www/html --name=my_container_httpd'
           
         }
     }
