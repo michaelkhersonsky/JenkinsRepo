@@ -1,15 +1,16 @@
 pipeline {
     agent {
         docker {
+            reuseNode true
             image 'centos'
-            
+           
           
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'cat /etc/os-release'
+                sh 'cat /etc/os-release > /release.txt'
             }
         }
     }
