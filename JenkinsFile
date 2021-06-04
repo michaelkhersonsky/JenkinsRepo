@@ -26,13 +26,14 @@ pipeline {
                         docker {
                             reuseNode true
                             image 'httpd'
-                                steps {
-                                        sh 'docker run -dt -p 5050:80 --name=mycontainer httpd'
-                    }
+                
+                                        
+            
                     }                   
                 }
                         steps {
-                            echo "We have completed Deployment"
+                            sh 'docker run -dt -p 5050:80 --name=mycontainer httpd'
+                            echo "We have completed Deployment and run a container"
                 }
                 }
             }
