@@ -26,7 +26,8 @@ pipeline {
                         docker {
                             reuseNode true
                             image 'httpd'
-                            args '-dt -p 5050:80 --name apachecontainer'
+                            #args '-dt -p 5050:80 --name apachecontainer'
+                            sh 'docker run -dt -p 5050:80 --name=mycontainer httpd'
                     }
                 }
                         steps {
