@@ -29,12 +29,13 @@ pipeline {
                 
                                         
             
-                    }                   
-                }
-                        steps {
+                        }
+                    steps {
                             sh 'docker run -dt -p 5050:80 --name=mycontainer httpd'
                             echo "We have completed Deployment and run a container"
-                }
+                    
+                    }
+                    }
                 }
             }
         }    
