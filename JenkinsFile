@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cat /etc/os-release > /release.txt'
+                sh '[ -e /etc/querty.txt ] && cat /etc/release.txt || cat /etc/os-release > /etc/release.txt'
+               
             }
         }
     }
