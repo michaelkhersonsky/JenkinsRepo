@@ -1,1 +1,1 @@
-grint ('Hello, world!')
+print ('Hello, world!')
