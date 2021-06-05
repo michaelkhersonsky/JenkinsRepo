@@ -3,6 +3,7 @@ pipeline {
         docker {
             reuseNode true
             image 'centos'
+            args '--user root'
            
           
         }
