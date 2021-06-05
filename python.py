@@ -1,1 +1,1 @@
-jrint ('Hello, world!')
+print ('Hello, world!')
