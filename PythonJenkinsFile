@@ -1,0 +1,15 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Pull_Code_form_GitHub') {
+            steps {
+                git branch: 'main', url: 'https://github.com/michaelkhersonsky/JenkinsRepo.git'
+            }
+        }
+        stage('Running_Python_Code') {
+            steps {
+                sh 'python test.py'
+            }
+        }
+    }
+}
